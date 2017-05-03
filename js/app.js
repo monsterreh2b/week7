@@ -16,13 +16,13 @@ $("#add-employee").on("click", function(){
   var name = $("#name-input").val().trim();
   var rate = $("#rate-input").val().trim();
   var start = $("#start-input").val().trim();
-  var role = $("#role-input").val().trim();
+  var dest = $("#dest-input").val().trim();
 
   database.ref().push({
     name: name,
     rate: rate,
     start: start,
-    role: role
+    dest: dest
 });
 
 });
@@ -37,10 +37,10 @@ database.ref().on("child_added", function(snapshot) {
   console.log(sv.name);
   console.log(sv.rate);
   console.log(sv.start);
-  console.log(sv.role);
+  console.log(sv.dest);
 
   // $(".table").append("<div class='well'><span id='name'> " + sv.name +
-  // " </span><span id='role'> " + sv.role +
+  // " </span><span id='dest'> " + sv.dest +
   // " </span><span id='date'> " + sv.date +
   // " </span><span id='rate'> " + sv.rate + " </span></div>");
 
@@ -57,7 +57,7 @@ database.ref().on("child_added", function(snapshot) {
   newRow.append(newCell);
 
   var newCell = $('<td>');
-  newCell.text(sv.role);
+  newCell.text(sv.dest);
   newRow.append(newCell);
 
   var newCell = $('<td>');

@@ -69,8 +69,11 @@ strong {
   font-weight: normal;
 }
 
+.clock{
+  text-align: center;
+}
 p {
-    color: #888;
+    color: black;
     font-size: 16px;
     font-weight: 300;
     line-height: 28px;
@@ -349,14 +352,14 @@ a:hover, a:active, a:focus {
 }
 
 #home .col-md-6 {
-  background: #c3eafd;
+  background: #d59904;
 /* light blue color: #c3eafd; #f1e2d7*/
   padding-right: 0;
   padding-left: 0;
 }
 
 #home .home-img {
-  background: url('../images/data.jpg') no-repeat;
+  background: url('../images/data4.jpg') no-repeat;
   background-size: cover;
   background-position: 50% 50%;
   width: 100%;
@@ -377,7 +380,7 @@ a:hover, a:active, a:focus {
 }
 
 #home strong {
-	color: #FFBB6C;
+	color: black;
 }
 
 

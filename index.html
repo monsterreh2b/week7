@@ -9,7 +9,7 @@
 <meta name="author" content="templatemo">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-<title>Stimulus HTML CSS Template</title>
+<title>Train Scheduler</title>
 <!--
 Stimulus Template
 http://www.templatemo.com/tm-498-stimulus
@@ -56,7 +56,7 @@ http://www.templatemo.com/tm-498-stimulus
           <div class="collapse navbar-collapse">
                <ul class="nav navbar-nav navbar-right">
                     <li><a href="#home" class="smoothScroll">Home</a></li>
-                    <li><a href="#about" class="smoothScroll">Employee Data</a></li>
+                    <li><a href="#about" class="smoothScroll">Current Schedule</a></li>
                </ul>
           </div>
 
@@ -78,8 +78,8 @@ http://www.templatemo.com/tm-498-stimulus
                     <div class="home-thumb">
                          <div class="section-title">
                               <!-- <h4 class="wow fadeInUp" data-wow-delay="0.3s">welcome to my website</h4> -->
-                              <h1 class="wow fadeInUp" data-wow-delay="0.6s">Hello, we are <strong>Data Management Solutions</strong> currently based in Irvine.</h1>
-                              <p class="wow fadeInUp" data-wow-delay="0.9s">Our employee data management system provides a comprehensive directory of employee billable hours.</p>
+                              <h1 class="wow fadeInUp" data-wow-delay="0.6s">Welcome to Orange County's <strong>Train App</strong> page.</h1>
+                              <p class="wow fadeInUp" data-wow-delay="0.9s">The Train App provides a comprehensive schedule of train departures and arrivals in Orange County, California.</p>
 
                               <a href="#about" class="wow fadeInUp smoothScroll section-btn btn btn-success" data-wow-delay="1.4s">Get Started For Free</a>
 
@@ -105,7 +105,7 @@ http://www.templatemo.com/tm-498-stimulus
             </div> -->
               <div class="panel panel-default" style="max-width:800px;margin-left:auto; margin-right:auto;">
                 <!-- Default panel contents -->
-                <div class="panel-heading">Current Employees</div>
+                <div class="panel-heading">Current Train Schedule</div>
                 <div class="panel-body">
                   <p></p>
                 </div>
@@ -114,12 +114,12 @@ http://www.templatemo.com/tm-498-stimulus
                 <table class="table">
                   <thead>
                     <tr>
-                     <th id="name">Employee Name</th>
-                     <th id="role">Role</th>
+                     <th id="name">Train Name</th>
+                     <th id="dest">Destination</th>
                      <th id="date">Start Date</th>
                      <th id="months-worked">Months Worked</th>
-                     <th id="rate">Montly Rate ($)</th>
-                     <th id="billed">Total Billed ($)</th>
+                     <th id="rate">Frequency (Min)</th>
+                     <th id="billed">Next Arrival</th>
                    </tr>
                  </thead>
                  <tbody>
@@ -130,27 +130,29 @@ http://www.templatemo.com/tm-498-stimulus
 
                 </table>
               </div>
-
+              <div class="clock">
+                <img src="http://www.militarytimeconversionchart.com/wp-content/uploads/2014/11/military-time-clock-300x300.jpg" height="200" width="200"/>
+              </div>
               <div class="panel panel-default" style="max-width:800px;margin-left:auto; margin-right:auto;">
                 <!-- Default panel contents -->
-                <div class="panel-heading">Add Employee</div>
+                <div class="panel-heading">Add Train</div>
                 <div class="panel-body">
                   <p></p>
                   <form>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Employee Name</label>
+                  <label for="exampleInputEmail1">Train Name</label>
                   <input type="text" class="form-control" id="name-input" placeholder="ex: Billy Bob">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Role</label>
-                  <input type="text" class="form-control" id="role-input" placeholder="ex: CEO">
+                  <label for="exampleInputPassword1">Destination</label>
+                  <input type="text" class="form-control" id="dest-input" placeholder="ex: CEO">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Start Date</label>
-                  <input type="text" class="form-control" id="start-input" placeholder="ex: 01/01/16">
+                  <label for="exampleInputPassword1">First Train Time -- in military time (Please reference the clock above)</label>
+                  <input type="text" class="form-control" id="start-input" placeholder="ex: 6:00 pm is 18:00">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1">Monthly Rate</label>
+                  <label for="exampleInputPassword1">Frequency (Min)</label>
                   <input type="text" class="form-control" id="rate-input" placeholder="ex: 25">
                 </div>
 
