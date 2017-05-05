@@ -14,15 +14,18 @@ var database = firebase.database();
 
 $("#add-employee").on("click", function(){
   var name = $("#name-input").val().trim();
-  var rate = $("#rate-input").val().trim();
-  var start = $("#start-input").val().trim();
   var dest = $("#dest-input").val().trim();
+  var start = $("#start-input").val().trim();
+  var rate = $("#rate-input").val().trim();
+  
+  
 
   database.ref().push({
     name: name,
-    rate: rate,
+    dest: dest,
     start: start,
-    dest: dest
+    rate: rate
+      
 });
 
 });
@@ -35,9 +38,9 @@ database.ref().on("child_added", function(snapshot) {
   console.log(sv);
   console.log('<tr>');
   console.log(sv.name);
-  console.log(sv.rate);
-  console.log(sv.start);
   console.log(sv.dest);
+  console.log(sv.start);
+  console.log(sv.rate);
 
   // $(".table").append("<div class='well'><span id='name'> " + sv.name +
   // " </span><span id='dest'> " + sv.dest +
@@ -48,7 +51,7 @@ database.ref().on("child_added", function(snapshot) {
   var convertedDate = moment(new Date(sv.start));
 
   console.log(moment(sv.start).diff(moment(), "months"));
-  var months = moment(sv.start).diff(moment(), "months") * -1; 
+  var nextArrival = moment(sv.start).diff(moment(), "months") * -1; 
 
   var newRow = $('<tr>');
 
@@ -60,20 +63,20 @@ database.ref().on("child_added", function(snapshot) {
   newCell.text(sv.dest);
   newRow.append(newCell);
 
-  var newCell = $('<td>');
-  newCell.text(sv.start);
-  newRow.append(newCell);
-
-  var newCell = $('<td>');
-  newCell.text(months);
-  newRow.append(newCell);
+  // var newCell = $('<td>');
+  // newCell.text(sv.start);
+  // newRow.append(newCell);
 
   var newCell = $('<td>');
   newCell.text(sv.rate);
   newRow.append(newCell);
 
   var newCell = $('<td>');
-  newCell.text(months * sv.rate);
+  newCell.text(nextArrival * sv.rate);
+  newRow.append(newCell);
+
+  var newCell = $('<td>');
+  newCell.text(nextArrival);
   newRow.append(newCell);
 
   $('tbody').append(newRow);
