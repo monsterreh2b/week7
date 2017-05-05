@@ -48,10 +48,43 @@ database.ref().on("child_added", function(snapshot) {
   // " </span><span id='rate'> " + sv.rate + " </span></div>");
 
 
-  var convertedDate = moment(new Date(sv.start));
+  // var convertedDate = moment(new Date(sv.start));
 
-  console.log(moment(sv.start).diff(moment(), "months"));
-  var nextArrival = moment(sv.start).diff(moment(), "months") * -1; 
+  // console.log(moment(convertedDate).diff(moment(), "hours"));
+  // console.log(moment(sv.start))
+  // var tFrequency = sv.start;
+  // var currentTime = moment();
+  // console.log(currentTime);
+  // var nextArrival = moment().add(sv.rate, 'm'); 
+  // console.log(nextArrival);
+
+  // var minAway = moment().diff();
+
+
+   // Assumptions
+    var tFrequency = sv.rate;
+    // Time is 3:30 AM
+    var firstTime = sv.start;
+    // First Time (pushed back 1 year to make sure it comes before current time)
+    var firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
+    console.log(firstTimeConverted);
+    // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+    // Difference between the times
+    var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+    // Time apart (remainder)
+    var tRemainder = diffTime % tFrequency;
+    console.log(tRemainder);
+    // Minute Until Train
+    var tMinutesTillTrain = tFrequency - tRemainder;
+
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+    // Next Train
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm a"));
+    var nextTrain2 = moment(nextTrain).format("hh:mm a");
 
   var newRow = $('<tr>');
 
@@ -72,11 +105,11 @@ database.ref().on("child_added", function(snapshot) {
   newRow.append(newCell);
 
   var newCell = $('<td>');
-  newCell.text(nextArrival * sv.rate);
+  newCell.text(nextTrain2);
   newRow.append(newCell);
 
   var newCell = $('<td>');
-  newCell.text(nextArrival);
+  newCell.text(tMinutesTillTrain);
   newRow.append(newCell);
 
   $('tbody').append(newRow);
